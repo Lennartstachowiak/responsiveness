@@ -46,6 +46,7 @@ class EmailDetails extends StatelessWidget {
             ),
             Expanded(
               child: SingleChildScrollView(
+                controller: ScrollController(),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(email.body),

@@ -37,6 +37,7 @@ class EmailList extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: ListView.builder(
+        controller: ScrollController(),
         itemCount: length,
         itemBuilder: (context, index) {
           final email = emails[index];
