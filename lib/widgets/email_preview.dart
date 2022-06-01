@@ -17,10 +17,14 @@ class EmailPreview extends StatelessWidget {
         Text(
           email.sender.name,
           style: Theme.of(context).textTheme.titleMedium,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
         ),
         Text(
           email.subject,
           style: Theme.of(context).textTheme.subtitle2,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
         ),
       ],
     );

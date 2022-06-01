@@ -49,6 +49,7 @@ class _BigViewState extends State<BigView> {
                   length: emails.length,
                   setFavourite: setFavourite,
                 )),
+            const VerticalDivider(width: 0),
             Container(
                 width: isEmailFocused ? halfWidth : noWidth,
                 color: Colors.white,
