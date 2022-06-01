@@ -3,7 +3,7 @@ import 'package:responsiveness/models/models.dart';
 import 'package:responsiveness/widgets/widgets.dart';
 
 class EmailDetails extends StatelessWidget {
-  const EmailDetails({
+  EmailDetails({
     Key? key,
     required this.email,
   }) : super(key: key);
@@ -40,16 +40,22 @@ class EmailDetails extends StatelessWidget {
                 EmailDeliveryInfo(email: email),
               ],
             ),
-            Text(
-              email.subject,
-              style: Theme.of(context).textTheme.headline6,
+            SizedBox(
+              width: double.infinity,
+              child: Text(
+                email.subject,
+                style: Theme.of(context).textTheme.headline6,
+              ),
             ),
-            Expanded(
+            SizedBox(
+              width: double.infinity,
               child: SingleChildScrollView(
                 controller: ScrollController(),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(email.body),
+                  child: Text(
+                    email.body,
+                  ),
                 ),
               ),
             )
