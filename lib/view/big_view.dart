@@ -36,7 +36,6 @@ class _BigViewState extends State<BigView> {
     }
 
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
       body: Builder(builder: (context) {
         return Row(
           children: [
@@ -51,11 +50,6 @@ class _BigViewState extends State<BigView> {
                     return InkWell(
                       onTap: () {
                         emailDetailsFocus(email);
-                        // Navigator.of(context).push(
-                        //   MaterialPageRoute(
-                        //     builder: (context) => EmailDetails(email: email),
-                        //   ),
-                        // );
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
