@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsiveness/data.dart';
+import 'package:responsiveness/widgets/email_list.dart';
 import 'package:responsiveness/widgets/widgets.dart';
 import '../models/email.dart';
 
@@ -40,50 +41,14 @@ class _BigViewState extends State<BigView> {
         return Row(
           children: [
             SizedBox(
-              width: isEmailFocused ? halfWidth : fullWidth,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListView.builder(
-                  itemCount: emails.length,
-                  itemBuilder: (context, index) {
-                    final email = emails[index];
-                    return InkWell(
-                      onTap: () {
-                        emailDetailsFocus(email);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: Row(
-                          children: [
-                            SenderAvatar(sender: email.sender),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: EmailPreview(email: email),
-                              ),
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                EmailDeliveryInfo(email: email),
-                                IconButton(
-                                  onPressed: () {
-                                    setFavourite();
-                                  },
-                                  icon: !isFavourite
-                                      ? const Icon(Icons.star_border)
-                                      : const Icon(Icons.star),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ),
+                width: isEmailFocused ? halfWidth : fullWidth,
+                child: EmailList(
+                  emailDetailsFocus: emailDetailsFocus,
+                  emails: emails,
+                  isFavourite: isFavourite,
+                  length: emails.length,
+                  setFavourite: setFavourite,
+                )),
             Container(
                 width: isEmailFocused ? halfWidth : noWidth,
                 color: Colors.white,
